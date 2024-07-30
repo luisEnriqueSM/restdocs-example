@@ -115,6 +115,13 @@
 						<configuration>
 							<backend>html</backend>
 							<doctype>book</doctype>
+							<attributes>
+								<toc/>
+								<linkcss>false</linkcss>
+								<snippets>
+									${project.build.directory}/generated-snippets
+								</snippets>
+							</attributes>
 						</configuration>
 					</execution>
 				</executions>
