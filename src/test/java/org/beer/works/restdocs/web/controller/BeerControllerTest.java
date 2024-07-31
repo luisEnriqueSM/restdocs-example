@@ -20,6 +20,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.util.StringUtils;
 
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -58,15 +59,15 @@ class BeerControllerTest {
                  pathParameters(
                         parameterWithName("beerId").description("UUID of desired beer to get.")
                 ), responseFields(
-                        fieldWithPath("id").description("Id of Beer"),
-                        fieldWithPath("version").description("Version number"),
-                        fieldWithPath("createdDate").description("Date Created"),
-                        fieldWithPath("lastModifiedDate").description("Date updated"),
-                        fieldWithPath("beerName").description("Beer Name"),
-                        fieldWithPath("beerStyle").description("Beer Style"),
-                        fieldWithPath("upc").description("UPC of Beer"),
-                        fieldWithPath("price").description("Price"),
-                        fieldWithPath("quantityOnHand").description("Quantity On hand")
+                        fieldWithPath("id").description("Id of Beer").type(UUID.class),
+                        fieldWithPath("version").description("Version number").type(Integer.class),
+                        fieldWithPath("createdDate").description("Date Created").type(OffsetDateTime.class),
+                        fieldWithPath("lastModifiedDate").description("Date updated").type(OffsetDateTime.class),
+                        fieldWithPath("beerName").description("Beer Name").type(String.class),
+                        fieldWithPath("beerStyle").description("Beer Style").type(BeerStyleEnum.class),
+                        fieldWithPath("upc").description("UPC of Beer").type(Long.class),
+                        fieldWithPath("price").description("Price").type(BigDecimal.class),
+                        fieldWithPath("quantityOnHand").description("Quantity On hand").type(Integer.class)
                 )));
     }
 
